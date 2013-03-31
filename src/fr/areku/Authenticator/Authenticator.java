@@ -10,7 +10,6 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.areku.Authenticator.events.PlayerOfflineModeLogin;
-import fr.areku.commons.UpdateChecker;
 
 public class Authenticator extends JavaPlugin {
 	private static Authenticator instance;
@@ -61,7 +60,6 @@ public class Authenticator extends JavaPlugin {
 				.registerEvents(new InternalPlayerListener(this.controller),
 						this);
 		startMetrics();
-		startUpdate();
 	}
 
 	private void startMetrics() {
@@ -84,15 +82,6 @@ public class Authenticator extends JavaPlugin {
 			metrics.start();
 		} catch (IOException e) {
 			log("Cannot start Metrics...");
-		}
-	}
-
-	private void startUpdate() {
-		try {
-			UpdateChecker update = new UpdateChecker(this);
-			update.start();
-		} catch (MalformedURLException e) {
-			log("Cannot start Plugin Updater...");
 		}
 	}
 

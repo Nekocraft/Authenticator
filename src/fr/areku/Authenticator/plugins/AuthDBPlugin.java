@@ -3,7 +3,7 @@ package fr.areku.Authenticator.plugins;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-import com.authdb.AuthDB;
+import com.craftfire.authdb.AuthDB;
 
 import fr.areku.Authenticator.OfflineModePluginAuthenticator;
 

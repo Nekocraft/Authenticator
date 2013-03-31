@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>fr.areku</groupId>
+  <artifactId>Authenticator</artifactId>
+  <version>1.4</version>
+  <packaging>jar</packaging>
+  <name>Authenticator</name>
+  <url>https://github.com/Nekocraft</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <bukkit.version>1.5.1-R0.1-SNAPSHOT</bukkit.version>
+    <build.number>n1</build.number>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>bukkit-repo</id>
+      <url>http://repo.bukkit.org/content/groups/public/</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.bukkit</groupId>
+      <artifactId>bukkit</artifactId>
+      <version>${bukkit.version}</version>
+    </dependency>
+    <!-- mvn install:install-file -Dfile=authdb-2.3.8-SNAPSHOT.jar -DgroupId=com.craftfire -DartifactId=authdb -Dversion=2.3.8-SNAPSHOT -Dpackaging=jar -->
+    <dependency>
+      <groupId>com.craftfire</groupId>
+      <artifactId>authdb</artifactId>
+      <version>2.3.8-SNAPSHOT</version>
+    </dependency>
+    <!-- mvn install:install-file -Dfile=AuthMe-2.7.12.jar -DgroupId=uk.org.whoami -DartifactId=authme -Dversion=2.7.12 -Dpackaging=jar -->
+    <dependency>
+      <groupId>uk.org.whoami</groupId>
+      <artifactId>authme</artifactId>
+      <version>2.7.12</version>
+    </dependency>
+    <!-- mvn install:install-file -Dfile=CrazyCore-10.3.2.jar -DgroupId=de.st_ddt -DartifactId=crazycore -Dversion=10.3.2 -Dpackaging=jar -->
+    <dependency>
+      <groupId>de.st_ddt</groupId>
+      <artifactId>crazycore</artifactId>
+      <version>10.3.2</version>
+    </dependency>
+    <!-- mvn install:install-file -Dfile=CrazyLogin-7.12.jar -DgroupId=de.st_ddt -DartifactId=crazylogin -Dversion=7.12 -Dpackaging=jar -->
+    <dependency>
+      <groupId>de.st_ddt</groupId>
+      <artifactId>crazylogin</artifactId>
+      <version>7.12</version>
+    </dependency>
+    <!-- mvn install:install-file -Dfile=xAuth-2.0.26.jar -DgroupId=com.cypherx -DartifactId=xauth -Dversion=2.0.26 -Dpackaging=jar -->
+    <dependency>
+      <groupId>com.cypherx</groupId>
+      <artifactId>xauth</artifactId>
+      <version>2.0.26</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <defaultGoal>clean install</defaultGoal>
+    <finalName>${project.name}</finalName>
+    <sourceDirectory>${project.basedir}/src</sourceDirectory>
+    <testSourceDirectory>${project.basedir}/test</testSourceDirectory>
+    <resources>
+      <resource>
+        <targetPath>.</targetPath>
+        <directory>${project.basedir}/src</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>*</include>
+        </includes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <outputDirectory>../jars</outputDirectory>
+        </configuration>
+      </plugin>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.3.2</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
